@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FirstControl;
+use App\Models\Stock;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +20,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function(){
-        return view('main.home');
+Route::get('/', [FirstControl::class, 'home']);
+Route::get('/contact', [FirstControl::class, 'contact']);
+Route::get('/products', [FirstControl::class, 'products']);
+Route::get('/stock', [FirstControl::class, 'stock']);
+Route::post('/stock', [FirstControl::class, 'stockin']);
+Route::get('/stock/view', [FirstControl::class, 'viewstock']);
+
+Route::get('/stocke', function(){
+        $stockroute = Stock::all();
+        echo "<pre>";
+        print_r($stockroute);
 });
 
-Route::get('/contact', function(){
-        return view('main.contact');
-});
-
-Route::get('/products', function(){
-        return view('main.products');
-});

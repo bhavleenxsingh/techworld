@@ -33,6 +33,10 @@
                     Products <span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link active" href = "{{url('/stock')}}" aria-current="page">
+                    Stock <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link active" href = "{{url('/contact')}}" aria-current="page">
                     Contact <span class="visually-hidden">(current)</span></a>
             </li>
