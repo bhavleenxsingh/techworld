@@ -16,6 +16,9 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
     </head>
 
     <body>
@@ -25,7 +28,7 @@
         <a class="navbar-brand" href="{{url('/')}}"> &nbsp; &nbsp; Tech World</a>
         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" href="{{url('/')}}" aria-current="page">
+                <a class="nav-link active" href="{{url('/about')}}" aria-current="page">
                     Home <span class="visually-hidden">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -39,6 +42,18 @@
             <li class="nav-item">
                 <a class="nav-link active" href = "{{url('/contact')}}" aria-current="page">
                     Contact <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href = "{{url('/signup')}}" aria-current="page">
+                    Login <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href = "{{url('/myprofile')}}" aria-current="page">
+                    My Profile <span class="visually-hidden">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href = "{{url('/cart')}}" aria-current="page">
+                    Cart <span class="visually-hidden">(current)</span></a>
             </li>
         </ul>
     </nav>

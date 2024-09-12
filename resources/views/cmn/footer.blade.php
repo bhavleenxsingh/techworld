@@ -4,14 +4,44 @@
         <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
         </a>
-        <p class="text-body-secondary">© 2024</p>
+        {{-- <p class="text-body-secondary"><h1>Tech World</h1>© 2024</p>
+<h1 class="d-inline">Tech World</h1>
+<p class="text-body-secondary d-inline"> © 2024</p> --}}
+{{-- <h1 class="d-inline">Tech World</h1>
+<p class="text-body-secondary d-inline align-top"> © 2024</p> --}}
+<h2 class="d-inline">Tech World</h2>
+<span class="text-body-secondary d-inline align-top"> © 2024</span>
+
         </div>
+
 
         <div class="col mb-3">
 
         </div>
 
-        <div class="col mb-3">
+        <div class="col mb-5">
+        <h5>Our Categories</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Keyboards</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Mouse</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Storage Cards</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cables</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Combos</a></li>
+            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Others</a></li>
+        </ul>
+        </div>
+
+        <div class="col mb-10">
+        <h5>Our World</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="{{url('/')}}" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/products')}}" class="nav-link p-0 text-body-secondary">Products</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/faq')}}" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/about')}}" class="nav-link p-0 text-body-secondary">About Us</a></li>
+        </ul>
+        </div>
+
+        {{-- <div class="col mb-5">
         <h5>Section</h5>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
@@ -20,29 +50,7 @@
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
         </ul>
-        </div>
-
-        <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-        </div>
-
-        <div class="col mb-3">
-        <h5>Section</h5>
-        <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-        </ul>
-        </div>
+        </div> --}}
 </footer>
 </div>
 </div>

@@ -15,8 +15,11 @@ return new class extends Migration
     {
         Schema::create('stock', function (Blueprint $table) {
             $table->id('productid');
-            $table->string('name', 100);
-            $table->string('category');
+            $table->string('name');
+            $table->string('image')->default('No picture available');
+            $table->enum('category', ["Keyboard", "Mouse", "Storage Cards", "Cable", "Combo", "Other"]);
+            $table->string('tagline');
+            $table->text('description');
             $table->integer('quantity');
             $table->float('mrp');
             $table->integer('discount');

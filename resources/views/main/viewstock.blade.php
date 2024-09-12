@@ -44,10 +44,13 @@
                 <th>Product ID</th>
                 <th>Name</th>
                 <th>Category</th>
+                <th>Tagline</th>
+                <th>Description</th>
                 <th>Quantity</th>
                 <th>MRP</th>
                 <th>Discount</th>
                 <th>Price</th>
+                <th>Image</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -59,11 +62,25 @@
                 <td scope="row">{{$stockeach->productid}}</td>
                 <td>{{$stockeach->name}}</td>
                 <td>{{$stockeach->category}}</td>
+                <td>{{$stockeach->tagline}}</td>
+                <td>{{$stockeach->description}}</td>
                 <td>{{$stockeach->quantity}}</td>
                 <td>{{$stockeach->mrp}}</td>
                 <td>{{$stockeach->discount}}</td>
                 <td>{{$stockeach->price}}</td>
-                <td><button class=" btn btn-primary">Edit</button></td>
+                <td>{{$stockeach->image}}</td>
+                <td><a href="{{url('/stock/edit/')}}/{{$stockeach->productid}}">
+                        <button class = "btn" style="background-color: green; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='darkgreen';"
+            onmouseout="this.style.backgroundColor='green';">
+        Edit
+    </button></a> &nbsp; &nbsp; 
+                    <a href="{{url('/stock/delete/')}}/{{$stockeach->productid}}">
+                         <button class = "btn" style="background-color: red; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='darkred';"
+            onmouseout="this.style.backgroundColor='red';">
+        Delete
+    </button></a></td>
             </tr>
             @endforeach
     </table>

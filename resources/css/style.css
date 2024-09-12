@@ -1,0 +1,7 @@
+.card {
+  margin: 20px; /* Adds space around the card */
+  padding: 15px; /* Optional: Adds space inside the card */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
