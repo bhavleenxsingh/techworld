@@ -14,6 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('userprofile', function (Blueprint $table) {
+            $table->unsignedBigInteger('user_id');  // Add the user_id foreign key
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->id('addressid');
             $table->string('name');
             $table->string('email');
@@ -21,7 +23,6 @@ return new class extends Migration
             $table->enum('gender', ["Male", "Female", "Other"]);
             $table->string('address1');
             $table->string('address2');
-            $table->string('address3');
             $table->string('city');
             $table->string('state');
             $table->string('pincode');
