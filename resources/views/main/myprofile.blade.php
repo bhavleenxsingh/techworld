@@ -1,9 +1,8 @@
 @include('cmn.header')
 <br>
 <div
-    class="table-responsive"
->
-<div class="container"><h1>Hi, Username!</h1><br>
+    class="table-responsive">
+<div class="container"><h1>Hi, {{ Auth::user()->name }}</h1><br>
 <a href="{{url('/myprofile/address/')}}"><button class="btn btn-primary">Add New Address</button></a>
 <br><br>    </div>
 @foreach ($address as $each)
@@ -26,10 +25,10 @@
                 <td>{{ $each->name }}</td>
             </tr>
 
-            <tr>
+            {{-- <tr>
                 <th style="padding: 0.25rem; border-right: 2px solid #000;">Email</th>
                 <td>{{$each->email}}</td>
-            </tr>
+            </tr> --}}
 
             <tr>
                 <th style="padding: 0.25rem; border-right: 2px solid #000;">Phone</th>
@@ -43,7 +42,7 @@
 
             <tr>
                 <th style="padding: 0.25rem; border-right: 2px solid #000;">Address</th>
-                <td>{{$each->address1}}, {{$each->address2}}, {{$each->address3}}</td>
+                <td>{{$each->address1}}, {{$each->address2}}</td>
             </tr>
 
             {{-- <tr>

@@ -1,5 +1,14 @@
 @include('cmn.header')
 <br><br>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
 <h1>{{$heading}}</h1> <br>
 <span class="text-muted"><p> Fields marked with (<span class="text-danger">*</span>) must be filled.</p></span>
@@ -22,7 +31,7 @@
     @enderror
 </div>
 
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="" class="form-label">E-mail <span class="text-danger">*</span></label> &nbsp; &nbsp; &nbsp; &nbsp; 
     <input
         type="text"
@@ -37,7 +46,7 @@
     @error('email')
         {{$message}}
     @enderror
-</div>
+</div> --}}
 
 <div class="mb-3">
     <label for="" class="form-label">Phone <span class="text-danger">*</span></label> &nbsp; &nbsp; &nbsp; &nbsp; 
@@ -106,23 +115,6 @@
     />
     <span class="text-danger">
     @error('address2')
-        {{$message}}
-    @enderror
-</div>
-
-<div class="mb-3">
-    <label for="" class="form-label">Address Line 3 <span class="text-muted">(optional)</span></label> &nbsp; &nbsp; &nbsp; &nbsp; 
-    <input
-        type="text"
-        name="address3"
-        id=""
-        class="form-center"
-        value = "{{old('address3', isset($address) ? $address->address3 : '' )}}"
-        placeholder="Address Line 3"
-        aria-describedby="helpId"
-    />
-    <span class="text-danger">
-    @error('address3')
         {{$message}}
     @enderror
 </div>

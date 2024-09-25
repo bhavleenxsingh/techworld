@@ -22,12 +22,12 @@
         <div class="col mb-5">
         <h5>Our Categories</h5>
         <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Keyboards</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Mouse</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Storage Cards</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cables</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Combos</a></li>
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Others</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Keyboard') }}" class="nav-link p-0 text-body-secondary">Keyboards</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Mouse') }}" class="nav-link p-0 text-body-secondary">Mouse</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Storage Cards') }}" class="nav-link p-0 text-body-secondary">Storage Cards</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Cable') }}" class="nav-link p-0 text-body-secondary">Cables</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Combo') }}" class="nav-link p-0 text-body-secondary">Combos</a></li>
+            <li class="nav-item mb-2"><a href="{{ route('categorysort', 'Other') }}" class="nav-link p-0 text-body-secondary">Others</a></li>
         </ul>
         </div>
 
@@ -40,7 +40,17 @@
             <li class="nav-item mb-2"><a href="{{url('/about')}}" class="nav-link p-0 text-body-secondary">About Us</a></li>
         </ul>
         </div>
-
+@auth
+        <div class="col mb-10">
+        <h5> My Profile</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="{{url('/profile')}}" class="nav-link p-0 text-body-secondary">Profile</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/myprofile')}}" class="nav-link p-0 text-body-secondary">Addresses</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/myprofile')}}" class="nav-link p-0 text-body-secondary">Orders</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/cart')}}" class="nav-link p-0 text-body-secondary">Cart</a></li>
+        </ul>
+        </div>
+@endauth
         {{-- <div class="col mb-5">
         <h5>Section</h5>
         <ul class="nav flex-column">

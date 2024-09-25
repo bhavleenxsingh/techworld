@@ -4,9 +4,12 @@
 <form action="{{$url}}" method="post">
 @csrf
 
-<h2>{{$heading}}</h2>
+<div class="container" style="display: flex; align-items: center;">
+<h2>{{$heading}}</h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  <span>
+<a href="{{url('/stock/view')}}"><button class="btn btn-primary"> View Stock </button>
+</a></span></div>
 <br>
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="" class="form-label">Product ID</label>
     <input
         type="text"
@@ -24,7 +27,7 @@
 
     </span>
 
-</div>
+</div> --}}
 
 <div class="mb-3">
     <label for="" class="form-label">Name</label>

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('stock', function (Blueprint $table) {
             $table->id('productid');
             $table->string('name');
-            $table->string('image')->default('No picture available');
+            $table->string('image');
             $table->enum('category', ["Keyboard", "Mouse", "Storage Cards", "Cable", "Combo", "Other"]);
             $table->string('tagline');
             $table->text('description');
