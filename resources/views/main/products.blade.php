@@ -13,9 +13,9 @@ card {
 <br><br>
 <div class="container text-center">
     <h1>Our Tech Products</h1>
-
-
-<br><button class="btn btn-primary" id = "clickb">Javascript Tester</button>
+<br><button class="btn btn-primary" onclick="submitCart()">Submit Cart</button><br>
+<meta name="csrf-token" content="{{ csrf_token() }}">
+{{-- <br><button class="btn btn-primary" id = "clickb">Javascript Tester</button>
 <script>
 
 
@@ -26,7 +26,7 @@ el.textContent = "Clicked";
 }
 
 el.addEventListener("click", dothis);
-</script>
+</script> --}}
 </div>
 
 <div class="card-container" 
@@ -63,9 +63,48 @@ style = "margin: 20px; /* Adds space around the card */
                 <h4 style="margin: 0;"><b>₹ {{$stock->price}}</b></h4> &nbsp; &nbsp;
                 <h5 style="margin: 0;"><strong><span class="text-success">{{$stock->discount}}% Off</span></strong></h5>
             </div><br>
-            <a href="#"><button class="btn btn-primary">Add to Cart</button></a>
+            <a><button class="btn btn-primary"  
+            onclick="addToCart('{{$stock->name}}', 1,{{$stock->price}} )">
+            Add to Cart</button></a> &nbsp; &nbsp; &nbsp; 
         </div>
     </div>
 @endforeach
 </div>
+
+<script>
+    let cartitems = [];
+function addToCart(name, quantity, price){
+        let item = {
+            itemname : name,
+            itemqty : quantity,
+            itemprice : price,
+            };
+        cartitems.push(item);
+        console.log(cartitems);
+}
+</script>
+
+<script>
+
+function submitCart(){
+        fetch('/cart/store', {
+            method : 'POST',
+            headers : {
+                'Content-Type' : 'application/json',
+                'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body : JSON.stringify({ cart : cartitems})
+        })
+        .then(response => response.json())
+        .then(data=>{
+            console.log('Cart Saved : ', data);
+        })
+        // .catch((error)=>{
+        //     console.error("Error : ", error);
+        // });
+        
+}
+</script>
+
+
 @include('cmn.footer')

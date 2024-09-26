@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirstControl;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\CartController;
 use App\Models\Stock;
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group (function(){
-    Route::get('/cart', [FirstControl::class, 'cart']);
+    Route::get('/cart/store', [CartController::class, 'cart']);
+    Route::post('/cart/store', [CartController::class, 'store']);
     Route::get('/myprofile/address/', [UserProfileController::class, 'newaddress']);
     Route::post('/myprofile/address/', [UserProfileController::class, 'create']);
     Route::get('/myprofile', [UserProfileController::class, 'myprofile'])->name('addresses');
