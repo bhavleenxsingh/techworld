@@ -71,7 +71,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" href = "{{url('/cart')}}" aria-current="page">
+                <a class="nav-link active" href = "{{url('/cart/store')}}" aria-current="page">
                     Cart - ₹  <span class="visually-hidden">(current)</span></a>
             </li>
 @endif
@@ -85,7 +85,7 @@
                 <li><a class="dropdown-item" href="{{url('/profile')}}">My Profile</a></li>
                 <li><a class="dropdown-item" href="{{url('/myprofile')}}">Addresses</a></li>
                 <li><a class="dropdown-item" href="{{url('/myprofile')}}">Orders</a></li>
-                <li><a class="dropdown-item" href="{{url('/cart')}}">Cart</a></li>
+                <li><a class="dropdown-item" href="{{url('/cart/store')}}">Cart</a></li>
                 <li><a class="dropdown-item"><form method="POST" action="{{ route('logout') }}" style="display:inline;">
                         @csrf
                         <button class= "nav-link text-dark" type="submit">
