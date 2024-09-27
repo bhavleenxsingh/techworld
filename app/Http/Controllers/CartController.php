@@ -55,6 +55,10 @@ public function cart(){
     return view('main.cart')->with($data);
     }
 
-
+public function checkout(){
+    $cart = Cart::where('user_id', Auth::id())->first();
+    $data = compact('cart');
+    return view('main.checkout')->with($data);
+    }
 
 }

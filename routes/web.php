@@ -32,6 +32,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group (function(){
     Route::get('/cart/store', [CartController::class, 'cart']);
     Route::post('/cart/store', [CartController::class, 'store']);
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     Route::get('/myprofile/address/', [UserProfileController::class, 'newaddress']);
     Route::post('/myprofile/address/', [UserProfileController::class, 'create']);
     Route::get('/myprofile', [UserProfileController::class, 'myprofile'])->name('addresses');
