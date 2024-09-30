@@ -3,8 +3,8 @@
 
 <div class="container text-center">
 <h1>Your Cart!</h1>
-<h4>...Happy Shopping...</h4>
 </div>
+<div class="container text-center">
 @if(Auth::check() && $cart) 
     <h3 style="text-align: center;">Your Cart Items:</h3>
     <ul>
@@ -15,6 +15,7 @@
                 <th>Item Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
+                <th>Amount</th>
             </tr>
         </thead>
         <tbody>
@@ -26,26 +27,31 @@
                     <td>{{ $item->itemname }}</td>
                     <td>{{ $item->itemqty }}</td>
                     <td>₹ {{ $item->itemprice }}</td>
+                    <td>₹ {{ $item->itemqty * $item->itemprice }}</td>
                 </tr>
 @php
                             
                             // Calculate the total for each item
-                            $total += $item->itemprice;
+                            $total +=  ($item->itemqty * $item->itemprice);
                         @endphp
 
             @endforeach
 
             <tr>
+            <td> </td>
+            <td> </td>
             <td><b><strong>TOTAL</strong></b></td>
-<td> </td>
-<td> ₹ {{$total}}</td>
+            <td> ₹ {{$total}}</td>
             </tr>
         </tbody>
-    </table>
+    </table><br><br>
+<div class="container text-center">
+    <a href="{{route('checkout')}}" class="btn btn-primary">Checkout</a>
+</div>
 @else
     <p>Your cart is empty.</p>
 @endif
-
+</div>
 @include('cmn.footer')
 
 {{-- @foreach(json_decode($cart->items) as $item)

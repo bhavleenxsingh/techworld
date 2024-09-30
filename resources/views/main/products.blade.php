@@ -13,20 +13,7 @@ card {
 <br><br>
 <div class="container text-center">
     <h1>Our Tech Products</h1>
-<br><button class="btn btn-primary" onclick="submitCart()">Submit Cart</button><br>
 <meta name="csrf-token" content="{{ csrf_token() }}">
-{{-- <br><button class="btn btn-primary" id = "clickb">Javascript Tester</button>
-<script>
-
-
-const el = document.getElementById("clickb");
-function dothis(){
-console.log("I am Clicked");
-el.textContent = "Clicked";
-}
-
-el.addEventListener("click", dothis);
-</script> --}}
 </div>
 
 <div class="card-container" 
@@ -45,11 +32,11 @@ style = "margin: 20px; /* Adds space around the card */
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
         {{-- <img
             class="card-img-top"
-            src="holder.js/100x180/"
+            src=""
             alt="Card image cap"
         /> --}}
         <div class="card-body">
-            <img src="{{ asset('storage/products/' . $stock->image) }}" alt="{{$stock->name}}">
+            <img class="card-img-top" src="{{ asset('storage/products/' . $stock->image) }}" alt="{{$stock->name}}">
                 <h3 class="card-title">{{$stock->name}}</h4>
             <span class="text-muted">  
                 <h6 class="card-text">{{$stock->category}}</h6>
@@ -64,47 +51,13 @@ style = "margin: 20px; /* Adds space around the card */
                 <h5 style="margin: 0;"><strong><span class="text-success">{{$stock->discount}}% Off</span></strong></h5>
             </div><br>
             <a><button class="btn btn-primary"  
-            onclick="addToCart('{{$stock->name}}', 1,{{$stock->price}} )">
-            Add to Cart</button></a> &nbsp; &nbsp; &nbsp; 
+            onclick="addToCart('{{$stock->name}}', 1,{{$stock->price}}, {{$stock->price}} ); 
+                    submitCart();">
+                Add to Cart</button></a> &nbsp; &nbsp; &nbsp; 
         </div>
     </div>
 @endforeach
 </div>
 
-<script>
-    let cartitems = [];
-function addToCart(name, quantity, price){
-        let item = {
-            itemname : name,
-            itemqty : quantity,
-            itemprice : price,
-            };
-        cartitems.push(item);
-        console.log(cartitems);
-}
-</script>
-
-<script>
-
-function submitCart(){
-        fetch('/cart/store', {
-            method : 'POST',
-            headers : {
-                'Content-Type' : 'application/json',
-                'X-CSRF-TOKEN' : document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body : JSON.stringify({ cart : cartitems})
-        })
-        .then(response => response.json())
-        .then(data=>{
-            console.log('Cart Saved : ', data);
-        })
-        // .catch((error)=>{
-        //     console.error("Error : ", error);
-        // });
-        
-}
-</script>
-
-
+@include('main.cartscript')
 @include('cmn.footer')
