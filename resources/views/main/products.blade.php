@@ -24,19 +24,17 @@ card {
 @foreach($stockall as $stock)
     <div class="card" 
 style = "margin: 20px; /* Adds space around the card */
-  padding: 15px; /* Optional: Adds space inside the card */
+  padding: 2px; /* Optional: Adds space inside the card */
   border: 1px solid #ccc;
   width : 25%;
   background-color : rgb(216, 214, 214);
   border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
-        {{-- <img
-            class="card-img-top"
-            src=""
-            alt="Card image cap"
-        /> --}}
+
         <div class="card-body">
-            <img class="card-img-top" src="{{ asset('storage/products/' . $stock->image) }}" alt="{{$stock->name}}">
+            <img class="card-img-top" src="{{ asset('storage/products/' . $stock->image) }}" 
+                alt="{{$stock->name}}" width = "100%" height="auto" style = "object-fit: cover">
+<br><br>
                 <h3 class="card-title">{{$stock->name}}</h4>
             <span class="text-muted">  
                 <h6 class="card-text">{{$stock->category}}</h6>
@@ -50,10 +48,21 @@ style = "margin: 20px; /* Adds space around the card */
                 <h4 style="margin: 0;"><b>₹ {{$stock->price}}</b></h4> &nbsp; &nbsp;
                 <h5 style="margin: 0;"><strong><span class="text-success">{{$stock->discount}}% Off</span></strong></h5>
             </div><br>
-            <a><button class="btn btn-primary"  
-            onclick="addToCart('{{$stock->name}}', 1,{{$stock->price}}, {{$stock->price}} ); 
-                    submitCart();">
-                Add to Cart</button></a> &nbsp; &nbsp; &nbsp; 
+ @auth
+    <button class="btn btn-primary"  
+        onclick="addToCart('{{$stock->name}}', 1, {{$stock->price}}, {{$stock->price}}); 
+                 submitCart();">
+        Add to Cart
+    </button>
+@endauth
+
+@guest
+    <a href="{{ route('login') }}?redirect={{ urlencode(request()->fullUrl()) }}">
+        <button class="btn btn-primary">
+            Add to Cart
+        </button>
+    </a>
+@endguest
         </div>
     </div>
 @endforeach

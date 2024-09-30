@@ -35,7 +35,7 @@
         <h5>Our World</h5>
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="{{url('/')}}" class="nav-link p-0 text-body-secondary">Home</a></li>
-            <li class="nav-item mb-2"><a href="{{url('/products')}}" class="nav-link p-0 text-body-secondary">Products</a></li>
+            <li class="nav-item mb-2"><a href="{{route('products')}}" class="nav-link p-0 text-body-secondary">Products</a></li>
             <li class="nav-item mb-2"><a href="{{url('/faq')}}" class="nav-link p-0 text-body-secondary">FAQs</a></li>
             <li class="nav-item mb-2"><a href="{{url('/about')}}" class="nav-link p-0 text-body-secondary">About Us</a></li>
         </ul>

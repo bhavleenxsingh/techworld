@@ -1,7 +1,16 @@
 @include('cmn.header')
 <br><br>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="container">
-<form action="{{$url}}" method="post">
+<form action="{{$url}}" method="post" enctype = "multipart/form-data">
 @csrf
 
 <div class="container" style="display: flex; align-items: center;">
@@ -9,25 +18,6 @@
 <a href="{{url('/stock/view')}}"><button class="btn btn-primary"> View Stock </button>
 </a></span></div>
 <br>
-{{-- <div class="mb-3">
-    <label for="" class="form-label">Product ID</label>
-    <input
-        type="text"
-        name="productid"
-        id=""
-        class="form-center"
-        value = "{{old('productid', isset($stockedit) ? $stockedit->productid : '' )}}"
-        placeholder="ID"
-        aria-describedby="helpId"
-    />
-    <span class="text-danger">
-    @error('productid')
-        {{$message}}
-    @enderror
-
-    </span>
-
-</div> --}}
 
 <div class="mb-3">
     <label for="" class="form-label">Name</label>
@@ -55,10 +45,15 @@
         name="image"
         id=""
         class="form-center"
-        value = "{{ old('image', isset($stockedit) ? $stockedit->image : '')}}"
-        placeholder="Upload Image..."
         aria-describedby="helpId"
     />
+
+    @if(isset($stockedit) && $stockedit->image)
+        <div class="mt-2">
+            <img src="{{ asset('storage/products/' . $stockedit->image) }}" alt="Current Image" width="150px">
+            <p>Current Image</p>
+        </div>
+    @endif
     <span class="text-danger">
     @error('image')
         {{$message}}
@@ -78,12 +73,12 @@
         aria-describedby="helpId"
         >
         <option value="" disabled selected>Select Category</option>
-        <option value="Keyboard" {{ old('type', $model->type ?? '') == 'Keyboard' ? 'selected' : '' }}>Keyboard</option>
-        <option value="Mouse" {{ old('type', $model->type ?? '') == 'Mouse' ? 'selected' : '' }}>Mouse</option>
-        <option value="Storage Cards" {{ old('type', $model->type ?? '') == 'Storage Cards' ? 'selected' : '' }}>Storage Cards</option>
-        <option value="Cable" {{ old('type', $model->type ?? '') == 'Cable' ? 'selected' : '' }}>Cable</option>
-        <option value="Combo" {{ old('type', $model->type ?? '') == 'Combo' ? 'selected' : '' }}>Combo</option>
-        <option value="Other" {{ old('type', $model->type ?? '') == 'Other' ? 'selected' : '' }}>Other</option>
+        <option value="Keyboard" {{ old('category', $stockedit->category ?? '') == 'Keyboard' ? 'selected' : '' }}>Keyboard</option>
+        <option value="Mouse" {{ old('category', $stockedit->category ?? '') == 'Mouse' ? 'selected' : '' }}>Mouse</option>
+        <option value="Storage Cards" {{ old('category', $stockedit->category ?? '') == 'Storage Cards' ? 'selected' : '' }}>Storage Cards</option>
+        <option value="Cable" {{ old('category', $stockedit->category ?? '') == 'Cable' ? 'selected' : '' }}>Cable</option>
+        <option value="Combo" {{ old('category', $stockedit->category ?? '') == 'Combo' ? 'selected' : '' }}>Combo</option>
+        <option value="Other" {{ old('category', $stockedit->category ?? '') == 'Other' ? 'selected' : '' }}>Other</option>
     </select>    
     <span class="text-danger">
     @error('category')

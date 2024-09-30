@@ -31,31 +31,13 @@ public function about(){
     return view('main.about');
     }
 
-
-
 public function categorysort($category){
-    //sort by category
-    //     $eachcat = Stock::find($category);
-    //     if (is_null($category)){
-    //     return redirect('main.products');
-    //         }
-    //     else{
-    //     $cat = compact('eachcat');
-    //     return view('main.categorysort')-> with($eachcat);
-    //         }
-    // }
-
-    // Fetch products based on category
     $products = Stock::where('category', $category)->get();
-    
     return view('main.categorysort', ['products' => $products, 'category' => $category]);
     }
 
 
 public function stock(){
-//  if (Auth::user()->email != 'admin@admin.com') {
-//         return redirect('/')->with('error', 'Access denied!');
-//     }
     $url = url('/stock');
     $title = "Add New Product";
     $heading = "Add New Product";
@@ -80,7 +62,6 @@ public function stockin(Request $reqstockin)
 
     $stock = new Stock();
     $stock->name = $reqstockin->input('name');
-
     if ($reqstockin->hasFile('image')) {
         $imageName = time() . '_' . $reqstockin->file('image')->getClientOriginalName();
         $reqstockin->file('image')->storeAs('public/products', $imageName);
@@ -89,7 +70,6 @@ public function stockin(Request $reqstockin)
     else {
             $stock->image = "No Picture Available";
         }
-
     $stock->category = $reqstockin->input('category');
     $stock->tagline = $reqstockin->input('tagline');
     $stock->description = $reqstockin->input('description');
@@ -100,60 +80,6 @@ public function stockin(Request $reqstockin)
     $stock->save();
     return redirect('/stock/view')->with('success', 'Stock added successfully!');
 }
-
-
-// public function stockin(Request $reqstockin){
-//     $reqstockin -> validate([
-//     'name' => 'required|alpha_dash',
-//     'image' => 'required',
-//     'category' => 'required|alpha',
-//     'quantity' => 'required|numeric',
-//     'mrp' => 'required|numeric',
-//     'discount' => 'numeric',
-//     'price' => 'required|numeric',
-
-//     ]);
-
-//     $stock = new Stock;
-//     $stock->name = $reqstockin['name'];
-//     // if ($reqstockin->hasfile('image'))
-//     // {
-//     //     $file = $reqstockin->file('image');
-//     //     $extension = $file->getClientOriginalExtension();
-//     //     $filename = time().'.'.$extension;
-//     //     $file->move(storage_path('app/public/uploads/product'), $filename);
-
-//         // $imageName = time() . '_' . $image->getClientOriginalName();
-//         // $path = $image->storeAs('public/products', $imageName);
-
-//         // $path = $image->storeAs('public/products', $imageName);
-
-//   if ($reqstockin->hasFile('image')) {
-//         $image = $reqstockin->file('image');
-//         $imageName = time() . '_' . $image->getClientOriginalName();
-
-//         // Move image to new folder inside storage
-//         $path = $image->storeAs('public/products', $imageName);
-//     }
-
-//         // $file ->move('public\uploads\product', $filename);
-//         // $stock->image = $filename;
-//     $stock->image = $imageName;
-
-//     $stock->category = $reqstockin['category'];
-//     $stock->tagline = $reqstockin['tagline'];
-//     $stock->description = $reqstockin['description'];
-//     $stock->quantity = $reqstockin['quantity'];
-//     $stock->mrp = $reqstockin['mrp'];
-//     $stock->price = $reqstockin['price'];
-//     $stock->discount = (($stock->mrp - $stock->price) / $stock->mrp) * 100;
-//     $stock->save();
-
-//     // $discount = (((($stock->mrp)-($stock->price))/($stock->mrp)) * 100);
-
-//     // $data = compact('discount');
-//     return redirect('/stock/view');
-//     }
 
 public function viewstock(){
     $stockall = Stock::all();
@@ -176,8 +102,6 @@ public function editstock($productid){
     }
 
 public function updatestock($id, Request $reqstockin){
-        
-
         $stock = Stock::find($id);
         $stock->name = $reqstockin['name'];
         $stock->image = $reqstockin['image'];
