@@ -34,12 +34,15 @@
 
     $delivery = 0;
     if ($total < 1000){
+        $fakedelivery = 150;
         $delivery = ($total * 0.13) + 13;
         }
     elseif ($total == 1000){
+        $fakedelivery = 200;
         $delivery = $total * 0.13;
         }
     else {
+        $fakedelivery = 270;
         $delivery = 0;
         }
     $gtotal = $total + $delivery;
@@ -49,7 +52,7 @@
             <td> </td>
             <td><b><strong>Delivery Charges</strong></b></td>
             <td> 
-                <s>₹ {{$total*0.22}}</s></h4> &nbsp; &nbsp;
+                <s>₹ {{$fakedelivery}}</s></h4> &nbsp; &nbsp;
                 <strong><span class="text-dark">₹ {{$delivery}}</span></strong></h5>
 
 
@@ -68,7 +71,8 @@
     <span class="text-muted"> (3-5 Business Days)</span>&nbsp;  &nbsp;  
             - &nbsp; &nbsp; DD/MM/YYYY. <br><br>
 </div>
-<div class="container text-center"><a href="#" class="btn btn-primary">Place Order</a></div>
+<div class="container text-center"><button type = "submit" class="btn btn-primary">
+<a href="#" class="btn btn-primary">Place Order</a></button></div>
 </div>
 
 @include('cmn.footer')

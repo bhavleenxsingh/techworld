@@ -19,11 +19,11 @@ use App\Models\Stock;
 */
 
 
-    Route::get('/', [FirstControl::class, 'products']);
-    Route::get('/contact', [FirstControl::class, 'contact']);
-    Route::get('/home', [FirstControl::class, 'home']);
-    Route::get('/faq', [FirstControl::class, 'faq']);
-    Route::get('/about', [FirstControl::class, 'about']);
+    Route::get('/', [FirstControl::class, 'products'])->name('products');
+    Route::get('/contact', [FirstControl::class, 'contact'])->name('contact');
+    Route::get('/home', [FirstControl::class, 'home'])->name('home');
+    Route::get('/faq', [FirstControl::class, 'faq'])->name('faq');
+    Route::get('/about', [FirstControl::class, 'about'])->name('about');
     Route::get('/category/{category}', [FirstControl::class, 'categorysort'])->name('categorysort');
 
 Route::get('/dashboard', function () {

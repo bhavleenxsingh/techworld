@@ -12,25 +12,21 @@
 
 <div class="card-container" 
     style = " display: flex;
-    flex-wrap: wrap; /* Allows wrapping to a new line if there are too many cards */
-    justify-content: space-around; /* Spaces cards evenly */
+    flex-wrap: wrap;
+    justify-content: space-around;
     margin: 20px;">
 @foreach($products as $cat)
     <div class="card" 
-style = "margin: 20px; /* Adds space around the card */
-  padding: 15px; /* Optional: Adds space inside the card */
+style = "margin: 10px;
+  padding: 2px;
   border: 1px solid #ccc;
   width : 25%;
   background-color : rgb(216, 214, 214);
   border-radius: 8px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
-        {{-- <img
-            class="card-img-top"
-            src="holder.js/100x180/"
-            alt="Card image cap"
-        /> --}}
         <div class="card-body">
-            <img src="{{ asset('/public/uploads/product/' .($cat->image ?? 'default.png')) }}" alt="{{$cat->name}}">
+            <img class="card-img-top" src="{{ asset('storage/products/' . $cat->image) }}" 
+                alt="{{$cat->name}}"  width = "auto" height="auto" style = "object-fit: cover">
                 <h3 class="card-title">{{$cat->name}}</h4>
             <span class="text-muted">  
                 <h6 class="card-text">{{$cat->category}}</h6>
@@ -49,8 +45,4 @@ style = "margin: 20px; /* Adds space around the card */
     </div>
 @endforeach
 </div>
-
-
-
-
 @include('cmn.footer')

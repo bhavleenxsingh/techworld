@@ -9,20 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    // public function store(Request $request){
-    //     $user =  Auth::user();
-    //     Cart::updateOrCreate(
-    //     ['user_id' => $user()->id],
-    //     ['items' => json_encode($request->cart)]
-    //     );
-
-    //     return response()->json([
-    //         'message' => "Cart Saved Successfully",
-    //     ]);
-
-    // }
-
-
 public function store(Request $request) {
     $user = Auth::user();
 
@@ -30,7 +16,6 @@ public function store(Request $request) {
         return response()->json(['error' => 'User not authenticated'], 401);
     }
 
-    // try {
         Cart::updateOrCreate(
             ['user_id' => $user->id],
             ['items' => json_encode($request->cart)]
@@ -39,12 +24,6 @@ public function store(Request $request) {
         return response()->json([
             'message' => "Cart Saved Successfully",
         ]);
-    // } 
-// catch (\Exception $e) {
-//         Log::error('Error saving cart: ' . $e->getMessage());
-//         console.log(error);
-//         return response()->json(['error' => 'Failed to save cart'], 500);
-//     }
 }
 
 
@@ -59,6 +38,11 @@ public function checkout(){
     $cart = Cart::where('user_id', Auth::id())->first();
     $data = compact('cart');
     return view('main.checkout')->with($data);
+    }
+
+public function ordersave(Request $request){
+        
+
     }
 
 }
