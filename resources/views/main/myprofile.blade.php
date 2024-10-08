@@ -2,7 +2,8 @@
 <br>
 <div
     class="table-responsive">
-<div class="container"><h1>Hi, {{ Auth::user()->name }}</h1><br>
+<div class="container"><h1  style="font-family: 'Algerian', sans-serif; font-size: 2rem; font-weight: bold;">
+Hi, {{ Auth::user()->name }}</h1><br>
 <a href="{{url('/myprofile/address/')}}"><button class="btn btn-primary">Add New Address</button></a>
 <br><br>    </div>
 @foreach ($address as $each)

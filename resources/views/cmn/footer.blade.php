@@ -9,7 +9,7 @@
 <p class="text-body-secondary d-inline"> © 2024</p> --}}
 {{-- <h1 class="d-inline">Tech World</h1>
 <p class="text-body-secondary d-inline align-top"> © 2024</p> --}}
-<h2 class="d-inline">Tech World</h2>
+<h2 class="d-inline"  style="font-family: 'Algerian', sans-serif; font-weight: bold;">Tech World</h2>
 <span class="text-body-secondary d-inline align-top"> © 2024</span>
 
         </div>
@@ -36,7 +36,6 @@
         <ul class="nav flex-column">
             <li class="nav-item mb-2"><a href="{{url('/')}}" class="nav-link p-0 text-body-secondary">Home</a></li>
             <li class="nav-item mb-2"><a href="{{route('products')}}" class="nav-link p-0 text-body-secondary">Products</a></li>
-            <li class="nav-item mb-2"><a href="{{url('/faq')}}" class="nav-link p-0 text-body-secondary">FAQs</a></li>
             <li class="nav-item mb-2"><a href="{{url('/about')}}" class="nav-link p-0 text-body-secondary">About Us</a></li>
         </ul>
         </div>
@@ -47,7 +46,7 @@
             <li class="nav-item mb-2"><a href="{{url('/profile')}}" class="nav-link p-0 text-body-secondary">Profile</a></li>
             <li class="nav-item mb-2"><a href="{{url('/myprofile')}}" class="nav-link p-0 text-body-secondary">Addresses</a></li>
             <li class="nav-item mb-2"><a href="{{url('/myprofile')}}" class="nav-link p-0 text-body-secondary">Orders</a></li>
-            <li class="nav-item mb-2"><a href="{{url('/cart')}}" class="nav-link p-0 text-body-secondary">Cart</a></li>
+            <li class="nav-item mb-2"><a href="{{url('/cart/store')}}" class="nav-link p-0 text-body-secondary">Cart</a></li>
         </ul>
         </div>
 @endauth

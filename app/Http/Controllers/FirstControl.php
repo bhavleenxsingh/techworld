@@ -23,9 +23,6 @@ public function products(){
     $data = compact('stockall');
     return view('main.products')->with($data);
     }
-public function faq(){
-    return view('main.faq');
-    }
 
 public function about(){
     return view('main.about');

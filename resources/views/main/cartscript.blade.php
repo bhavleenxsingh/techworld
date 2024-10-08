@@ -18,6 +18,9 @@ for (var i in cartitems) {
 </script>
 
 <script>
+function clearCart(){
+cartitems.splice(0, cartitems.length);
+}
 
 function submitCart(){
         fetch('/cart/store', {

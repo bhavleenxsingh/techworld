@@ -12,7 +12,8 @@ card {
 <div class="b-example-divider"></div>
 <br><br>
 <div class="container text-center">
-    <h1>Our Tech Products</h1>
+    <h1  style="font-family: 'Algerian', sans-serif; font-size: 2rem; font-weight: bold;">
+Our Tech Products</h1>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 </div>
 
@@ -35,7 +36,8 @@ style = "margin: 20px; /* Adds space around the card */
             <img class="card-img-top" src="{{ asset('storage/products/' . $stock->image) }}" 
                 alt="{{$stock->name}}" width = "100%" height="auto" style = "object-fit: cover">
 <br><br>
-                <h3 class="card-title">{{$stock->name}}</h4>
+                <h3 class="card-title"  style="font-family: 'Algerian', sans-serif; font-size: 2rem; font-weight: bold;">
+{{$stock->name}}</h4>
             <span class="text-muted">  
                 <h6 class="card-text">{{$stock->category}}</h6>
             </span>
@@ -50,7 +52,7 @@ style = "margin: 20px; /* Adds space around the card */
             </div><br>
  @auth
     <button class="btn btn-primary"  
-        onclick="addToCart('{{$stock->name}}', 1, {{$stock->price}}, {{$stock->price}}); 
+        onclick="addToCart('{{$stock->name}}', 1, {{$stock->price}}); 
                  submitCart();">
         Add to Cart
     </button>
