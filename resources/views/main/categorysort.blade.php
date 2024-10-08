@@ -40,9 +40,25 @@ style = "margin: 10px;
                 <h4 style="margin: 0;"><b>₹ {{$cat->price}}</b></h4> &nbsp; &nbsp;
                 <h5 style="margin: 0;"><strong><span class="text-success">{{$cat->discount}}% Off</span></strong></h5>
             </div><br>
-            <a href="#"><button class="btn btn-primary">Add to Cart</button></a>
+ @auth
+    <button class="btn btn-primary"  
+        onclick="addToCart('{{$cat->name}}', 1, {{$cat->price}}); 
+                 submitCart();">
+        Add to Cart
+    </button>
+@endauth
+
+@guest
+    <a href="{{ route('login') }}?redirect={{ urlencode(request()->fullUrl()) }}">
+        <button class="btn btn-primary">
+            Add to Cart
+        </button>
+    </a>
+@endguest
         </div>
     </div>
 @endforeach
-</div>
+
+
+@include('main.cartscript')
 @include('cmn.footer')

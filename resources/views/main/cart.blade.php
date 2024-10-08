@@ -1,12 +1,14 @@
 @include('cmn.header')
 <br>
 
-<div class="container text-center">
-<h1>Your Cart!</h1>
+<div class="container text-center" >
+<h1 style="font-family: 'Algerian', sans-serif; font-size: 2rem; font-weight: bold;">
+    Your Cart!</h1>
 </div>
 <div class="container text-center">
 @if(Auth::check() && $cart) 
-    <h3 style="text-align: center;">Your Cart Items:</h3>
+    <h3 style="text-align: center;" >
+Your Cart Items:</h3><br>
     <ul>
 
     <table class="table table-bordered" style="margin: 0 auto; width: 80%;">
@@ -21,6 +23,7 @@
         <tbody>
 @php
     $total = 0;
+    $totalqty = 0;
 @endphp
             @foreach(json_decode($cart->items) as $item)
                 <tr>
@@ -33,56 +36,28 @@
                             
                             // Calculate the total for each item
                             $total +=  ($item->itemqty * $item->itemprice);
+                            $totalqty +=  ($item->itemqty);
                         @endphp
 
             @endforeach
 
             <tr>
-            <td> </td>
-            <td> </td>
+            <td><b><strong>(Total Items)</strong></b></td>
+            <td><b><strong>{{$totalqty}} items</strong></b></td>
             <td><b><strong>TOTAL</strong></b></td>
             <td> ₹ {{$total}}</td>
             </tr>
         </tbody>
     </table><br><br>
 <div class="container text-center">
-    <a href="{{route('checkout')}}" class="btn btn-primary">Checkout</a>
+    <a href="{{route('checkout')}}" class="btn btn-primary">
+    <button class="btn btn-primary">Checkout</button></a> &nbsp; &nbsp; &nbsp; 
+    <a href="{{route('cart')}}" class="btn btn-primary">
+    <button class="btn btn-primary" onclick = "clearCart();">Clear Cart</button></a>
 </div>
+
 @else
     <p>Your cart is empty.</p>
 @endif
 </div>
 @include('cmn.footer')
-
-{{-- @foreach(json_decode($cart->items) as $item)
-<div class="card-container" 
-    style = "    flex-wrap: wrap; /* Allows wrapping to a new line if there are too many cards */
-    justify-content: space-around; /* Spaces cards evenly */
-    margin: 20px;">
-
-        <div class="card text-start" 
-            style = "margin: 20px; /* Adds space around the card */
-            padding: 15px; /* Optional: Adds space inside the card */
-            border: 1px solid #ccc;
-            width : 25%;
-            background-color : rgb(216, 214, 214);
-            border-radius: 8px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);">
-            <div class="card-body">
-                <h2 class="card-title">{{ $item->itemname }}</h2>
-                <h5 class="card-text">Quantity : {{ $item->itemqty }}</h5>
-                <h4 class="card-text" style="margin: 0;"><b>Price: ₹ {{ $item->itemprice }}</b></h4>
-            </div>
-        </div>
-</div>        
-
-
-        <li>{{ $item->itemname }} - Quantity: {{ $item->itemqty }}, Price: {{ $item->itemprice }}</li>
-
-
-        @endforeach
-    </ul> 
-@else
-    <p>Your cart is empty.</p>
-@endif
-<br>  --}}

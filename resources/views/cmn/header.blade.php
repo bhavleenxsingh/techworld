@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Tech-Eco</title>
+        <title>Tech World</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -22,7 +22,8 @@
 <header>
                 <!-- place navbar here -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-        <a class="navbar-brand" href="{{url('/')}}"> &nbsp; &nbsp; Tech World</a>
+        <a class="navbar-brand" href="#"  style="font-family: 'Algerian', sans-serif; font-weight: bold;">
+ &nbsp; &nbsp; Tech World</a>
         <ul class="navbar-nav me-auto mt-2 mt-lg-0">
             <li class="nav-item">
                 <a class="nav-link active" href="{{url('/home')}}" aria-current="page">
@@ -72,7 +73,7 @@
 
             <li class="nav-item">
                 <a class="nav-link active" href = "{{url('/cart/store')}}" aria-current="page">
-                    Cart - ₹  <span class="visually-hidden">(current)</span></a>
+                    Cart <span class="visually-hidden">(current)</span></a>
             </li>
 @endif
 @auth
